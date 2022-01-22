@@ -1,6 +1,7 @@
 const puzzles = {};
 puzzles['Day 1'] = require('./day-1');
 puzzles['Day 2'] = require('./day-2');
+puzzles['Day 3'] = require('./day-3');
 
 Object.keys(puzzles).forEach((day) => {
 	console.group(day);
