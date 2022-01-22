@@ -6,11 +6,11 @@ module.exports = class {
 				example
 			},
 			a: {
-				proof: solutions.a(example.a),
+				proof: solutions.a(example),
 				solution: solutions.a(input),
 			},
 			b: {
-				proof: solutions.b(example.b),
+				proof: solutions.b(example),
 				solution: solutions.b(input),
 			}
 		};
