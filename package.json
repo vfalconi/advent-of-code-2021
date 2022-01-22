@@ -1,0 +1,9 @@
+{
+	"scripts": {
+		"play": "node index",
+		"test": "mocha './day-*/test.js' --exclude './day-template/test.js'"
+	},
+  "dependencies": {
+    "mocha": "^9.1.4"
+  }
+}
