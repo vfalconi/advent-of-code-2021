@@ -40,27 +40,29 @@ module.exports.Line = class extends Array {
 	}
 
 	get points() {
-		const points = [...this];
-		const x1 = points[0].x;
-		const x2 = points[1].x;
-		const y1 = points[0].y;
-		const y2 = points[1].y;
+		const endpoints = [...this];
+		const x1 = endpoints[0].x;
+		const x2 = endpoints[1].x;
+		const y1 = endpoints[0].y;
+		const y2 = endpoints[1].y;
 		const dx = (x2 - x1);
 		const dy = (y2 - y1);
-		const change = (Math.abs(x1 - x2) + Math.abs(y1 - y2)) / (dx === 0 || dy === 0 ? 1 : 2);
-		const x = Array.from({ length: change + 1 }, (_, i) => {
-			if (dx > 0) return x1 + i;
-			if (dx < 0) return x1 - i;
-			return x1;
-		});
-		const y = Array.from({ length: change + 1 }, (_, i) => {
-			if (dy > 0) return y1 + i;
-			if (dy < 0) return y1 - i;
-			return y1;
-		});
+		const steps = (Math.abs(x1 - x2) + Math.abs(y1 - y2)) / (dx === 0 || dy === 0 ? 1 : 2);
+		const linePoints = [];
 
-		return x.map((p, i) => {
-			return { x: p, y: y[i] };
-		});
+		for (let step=0; step<=steps; step++) {
+			let x = x1;
+			let y = y1;
+
+			if (dx > 0) x += step;
+			if (dx < 0) x -= step;
+
+			if (dy > 0) y += step;
+			if (dy < 0) y -= step;
+
+			linePoints.push({ x, y});
+		}
+
+		return linePoints;
 	}
 }
