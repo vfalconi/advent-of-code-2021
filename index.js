@@ -10,6 +10,7 @@ if (key !== 0) {
 	puzzles['Day 5'] = require('./day-5');
 	puzzles['Day 6'] = require('./day-6');
 	puzzles['Day 7'] = require('./day-7');
+	puzzles['Day 8'] = require('./day-8');
 }
 
 Object.keys(puzzles).forEach((day) => {
